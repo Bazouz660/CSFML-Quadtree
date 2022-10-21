@@ -36,6 +36,7 @@
         sfText *fps_hint;
         sfFont *font;
         bool fullscreen;
+        bool boxes_visible;
     } render_t;
 
     typedef struct clock_s {

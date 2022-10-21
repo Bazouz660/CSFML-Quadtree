@@ -19,3 +19,8 @@ void place_rect(core_t *c, switch_key_t *key)
 {
     add_entity(c, &c->entities, v2i_to_v2f(c->mouse.pos));
 }
+
+void toggle_boxes_visible(core_t *c, switch_key_t *key)
+{
+    c->render.boxes_visible = key->state;
+}

@@ -40,12 +40,14 @@ void init_mouse(core_t *c)
 
 void init_keys(core_t *c)
 {
-    c->events.keys.toggleable = malloc(sizeof(switch_key_t) * (3));
+    c->events.keys.toggleable = malloc(sizeof(switch_key_t) * (4));
     init_toggleable_key(&c->events.keys.toggleable[0], sfKeyF11,
     &toggle_fullscreen);
     init_toggleable_key(&c->events.keys.toggleable[1], sfKeyE,
     &place_rect);
-    c->events.keys.toggleable[2].index = -1;
+    init_toggleable_key(&c->events.keys.toggleable[2], sfKeyV,
+    &toggle_boxes_visible);
+    c->events.keys.toggleable[3].index = -1;
 }
 
 void init_quadtree(core_t *c)
@@ -75,6 +77,7 @@ void init_game(core_t *c)
     c->clock.frame_delta = 0;
     c->entities = NULL;
     c->query = NULL;
+    c->render.boxes_visible = true;
     srand(time(NULL));
     init_view(c);
     init_mouse(c);

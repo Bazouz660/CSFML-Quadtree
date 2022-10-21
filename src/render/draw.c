@@ -34,7 +34,8 @@ static void draw_quadtree(core_t *c, quadtree_t *qt)
 void draw_all(core_t *c)
 {
     draw_quadtree(c, c->quadtree);
-    draw_entities(c);
+    if (c->render.boxes_visible)
+        draw_entities(c);
     sfRenderWindow_drawRectangleShape(c->render.window, c->range, NULL);
     sfRenderWindow_drawText(c->render.window, c->render.fps_hint, NULL);
 }
